@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>png/enemyShip.png</file>
+        <file>png/enemyUFO.png</file>
+        <file>png/laserGreen.png</file>
+        <file>png/laserRed.png</file>
+        <file>png/meteorBig.png</file>
+        <file>png/meteorSmall.png</file>
+        <file>png/player.png</file>
+        <file>png/Background/starBackground.png</file>
+        <file>png/shield.png</file>
+    </qresource>
+</RCC>
