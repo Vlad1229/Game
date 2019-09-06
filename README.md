@@ -50,6 +50,8 @@ cd release
 SpaceShooter.exe
 ```
 
+## Screenshots
 
+![1 screenshot](https://user-images.githubusercontent.com/31863793/64407083-21a57080-d08c-11e9-9b1c-896dba69c79d.png)
 
-
+![2 screenshot](https://user-images.githubusercontent.com/31863793/64407118-33871380-d08c-11e9-88c9-8724fb68ca48.png)
