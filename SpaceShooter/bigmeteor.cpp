@@ -9,10 +9,10 @@ BigMeteor::BigMeteor(int x, int y) : Enemy(x, y, 40, 40)
 void BigMeteor::Move()
 {
     exactY += speed;
-    y = static_cast<int>(floor(exactY)); // до координат додяється переміщення і округлюється
+    y = static_cast<int>(floor(exactY));
 }
 
 void BigMeteor::Draw(QPainter *painter)
 {
-    painter->drawPixmap(x, y, width, height, pix); // відображення об'єкту
+    painter->drawPixmap(x, y, width, height, pix);
 }
