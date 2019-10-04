@@ -3,7 +3,7 @@
 
 #include <QPainter>
 
-class Drawable // інтерфейс для відображення ігрових об'єктів
+class Drawable
 {
 public:
     virtual ~Drawable() = 0;
