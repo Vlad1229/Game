@@ -6,9 +6,6 @@
 #include "enemylaser.h"
 #include <memory>
 
-/* напрямок руху, 1 - прямий напрямок
-                  0 - залишається на місці
-                  -1 - зворотній напрямок*/
 struct Direction
 {
     bool forward;
