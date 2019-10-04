@@ -4,7 +4,7 @@
 #include "gameobject.h"
 #include "playerlaser.h"
 
-class Enemy : public GameObject // абстрактний клас, від якого наслідуються всі вороги
+class Enemy : public GameObject
 {
 protected:
     double speed;
