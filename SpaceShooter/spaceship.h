@@ -6,9 +6,9 @@
 class SpaceShip : public Enemy, public BlockAlloc<SpaceShip, 3>
 {
 private:
-    int attackCd; // інтервал між пострілами
-    int attackTimer; // час до нового пострілу
-    int attacking; // логічне значення, що показує, чи атакує ворог
+    int attackCd;
+    int attackTimer;
+    int attacking;
 public:
     SpaceShip(int x, int y);
     void Move() override;
