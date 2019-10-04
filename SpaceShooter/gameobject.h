@@ -5,16 +5,16 @@
 #include "drawable.h"
 #include <cmath>
 
-class GameObject : public Drawable // базовий клас від якого наслідуються всі ігрові об'єкти
+class GameObject : public Drawable
 {
 protected:
     int x;
-    int y;  //координати в цілих числах
+    int y;
     double exactX;
-    double exactY;  // точні координати цілих чисел
+    double exactY;
     int width;
-    int height; // довжина і ширина
-    QPixmap pix; // малюнок
+    int height;
+    QPixmap pix;
 public:
     GameObject(int x, int y, int width, int height);
     int GetX();
