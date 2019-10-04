@@ -73,7 +73,7 @@ void Player::Draw(QPainter *painter)
 
 void Player::Attack()
 {
-    attacking = (attackTimer <= 0); // якщо час між атаками пройшов, гравець атакує
+    attacking = (attackTimer <= 0);
     if (attacking)
     {
         attackTimer = attackCd;
@@ -90,34 +90,34 @@ int Player::GetHealth()
     return health;
 }
 
-bool Player::CheckForCollision(EnemyLaser *laser) // перевіряє перетинання з лазером
+bool Player::CheckForCollision(EnemyLaser *laser)
 {
     return ((laser->GetX() + laser->GetWidth() > x && laser->GetX() < x + width)
            && (laser->GetY() + laser->GetHeight() > y) && laser->GetY() < y + height);
 }
 
-bool Player::CheckForCollision(Enemy *enemy) // перевіряє перетинання з ворогом
+bool Player::CheckForCollision(Enemy *enemy)
 {
     return ((enemy->GetX() + enemy->GetWidth() > x && enemy->GetX() < x + width)
            && (enemy->GetY() + enemy->GetHeight() > y) && enemy->GetY() < y + height);
 }
 
-void Player::Damage() // наносить урон
+void Player::Damage()
 {
     health -= 1;
 }
 
-void Player::RestoreHealth() // відновлює здоров'я
+void Player::RestoreHealth()
 {
     health = 3;
 }
 
-void Player::ActivateShield() // активує щит
+void Player::ActivateShield()
 {
     shieldIsActive = true;
 }
 
-void Player::DeactivateShield() // деактивує щит
+void Player::DeactivateShield()
 {
     shieldIsActive = false;
 }
