@@ -24,7 +24,7 @@ class Game
 {
 private:
     int width;
-    int height; // ширина і довжина вікна
+    int height;
     int timer;
     int score;
     bool paused;
