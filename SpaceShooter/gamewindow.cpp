@@ -6,7 +6,7 @@ GameWindow::GameWindow(QWidget *parent) :
     ui(new Ui::GameWindow)
 {
     ui->setupUi(this);
-    ui->ResumeButton->setVisible(false); // всі клавіші на початку недоступні
+    ui->ResumeButton->setVisible(false);
     ui->ResumeButton->setEnabled(false);
     ui->RestartButton->setVisible(false);
     ui->RestartButton->setEnabled(false);
@@ -14,13 +14,13 @@ GameWindow::GameWindow(QWidget *parent) :
     ui->MainMenuButton->setEnabled(false);
 
     tmr = new QTimer(this);
-    tmr->setInterval(1); // інтервал таймеру 0,001 секунди
+    tmr->setInterval(1);
     connect(tmr, SIGNAL(timeout()), this, SLOT(updateTime()));
     game = std::unique_ptr<Game>(new Game(width(), height()));
-    setWindowFlags( Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint ); // ховається червоний хрестик, що закриває вікно
+    setWindowFlags( Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint );
 }
 
-void GameWindow::closeEvent(QCloseEvent *event) // подія при закриванні вікна
+void GameWindow::closeEvent(QCloseEvent *event)
 {
     game->Restart();
     tmr->stop();
@@ -39,7 +39,7 @@ void GameWindow::updateTime()
 {
     game->Play();
 
-    if (game->isOver()) // якщо гра завершена, клавіші "restart" i "main menu" стають доступні
+    if (game->isOver())
     {
         ui->ResumeButton->setVisible(false);
         ui->ResumeButton->setEnabled(false);
@@ -48,7 +48,7 @@ void GameWindow::updateTime()
         ui->MainMenuButton->setVisible(true);
         ui->MainMenuButton->setEnabled(true);
     }
-    else if (game->isPaused()) // якщо гра на паузі, клавіші "resume" i "main menu" стають доступні
+    else if (game->isPaused())
     {
         ui->ResumeButton->setVisible(true);
         ui->ResumeButton->setEnabled(true);
@@ -57,7 +57,7 @@ void GameWindow::updateTime()
         ui->MainMenuButton->setVisible(true);
         ui->MainMenuButton->setEnabled(true);
     }
-    else // в іншому випадку всі клавіші недоступні
+    else
     {
         ui->ResumeButton->setVisible(false);
         ui->ResumeButton->setEnabled(false);
