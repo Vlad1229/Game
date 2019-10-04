@@ -10,7 +10,6 @@ MainMenu::MainMenu(QWidget *parent) :
     gameWindow = std::unique_ptr<GameWindow>(new GameWindow());
     connect(gameWindow.get(), &GameWindow::MainMenu, this, &MainMenu::show);
 
-    // додаються текстові рядки до масиву
     labels.push_back(ui->Record1);
     labels.push_back(ui->Record2);
     labels.push_back(ui->Record3);
@@ -18,8 +17,8 @@ MainMenu::MainMenu(QWidget *parent) :
     labels.push_back(ui->Record5);
     for (size_t i = 0; i < labels.size(); i++)
     {
-        labels[i]->setVisible(false); // всі текстові рядки с=робляться невидимими
-        labels[i]->setText(QString::number(i + 1) + ". 0"); // у всіх рядках нуль на початку
+        labels[i]->setVisible(false);
+        labels[i]->setText(QString::number(i + 1) + ". 0");
     }
     ui->BackButton->setVisible(false);
 }
@@ -35,7 +34,7 @@ void MainMenu::on_QuitButton_clicked()
     qApp->exit();
 }
 
-void MainMenu::on_RecordsButton_clicked() // відкривається список рекордів
+void MainMenu::on_RecordsButton_clicked()
 {
     std::vector<std::string> records = ReadRecords("records.txt");
     ui->PlayButton->setVisible(false);
@@ -50,17 +49,17 @@ void MainMenu::on_RecordsButton_clicked() // відкривається спис
     }
     ui->BackButton->setVisible(true);
     ui->BackButton->setEnabled(true);
-    for (size_t i = 0; i < records.size(); i++) // в текстові рядки передаються рекорди
+    for (size_t i = 0; i < records.size(); i++)
     {
         labels[i]->setText(QString::number(i + 1) + ". " + QString::fromStdString(records[i]));
     }
-    for (size_t i = records.size(); i < 5; i++) // якщо рекордів менше 5, ставиться нуль
+    for (size_t i = records.size(); i < 5; i++)
     {
         labels[i]->setText(QString::number(i + 1) + ". 0");
     }
 }
 
-void MainMenu::on_BackButton_clicked() // повертається зі списку рекордів до головного меню
+void MainMenu::on_BackButton_clicked()
 {
     ui->PlayButton->setVisible(true);
     ui->PlayButton->setEnabled(true);
@@ -76,7 +75,7 @@ void MainMenu::on_BackButton_clicked() // повертається зі спис
     ui->BackButton->setEnabled(false);
 }
 
-std::vector<std::string> MainMenu::ReadRecords(std::string path) // відкриває файл і повертає масив рекордів
+std::vector<std::string> MainMenu::ReadRecords(std::string path)
 {
     std::vector<std::string> records;
     std::string line;
